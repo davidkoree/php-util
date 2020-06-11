@@ -62,6 +62,14 @@ function heapOut(&$a) {
         $a[1] = $last_one;
         $j = 1;
         $len = $tail - $i;
+
+        if ($len == 2) {
+            if ($a[1] > $a[2]) {
+                swapValue($a, 1, 2);
+            }
+            break;
+        }
+
         while ( ($l=getLeftChild($j)) <= $len && ($r=getRightChild($j)) <= $len ) {
             if ($a[$l] > $a[$j]) {
                 swapValue($a, $l, $j);
